@@ -20,7 +20,7 @@ public class Task2 {
                 map.get(key).add(arr[i]);
             }
         }
-        map.forEach((k, v) -> Collections.sort(v, (o1, o2) -> Integer.compare(o2.length(), o1.length())));           //Сортируем списки по количетсву букв в словах
+        map.forEach((k, v) -> v.sort((o1, o2) -> Integer.compare(o2.length(), o1.length())));           //Сортируем списки по количетсву букв в словах
         map.forEach((k, v) -> Collections.sort(v));         //Сортируем слова с одинаковой длиной по алфавиту
         for (Map.Entry<Character, List<String>> entry : map.entrySet()) {
             Character k = entry.getKey();
