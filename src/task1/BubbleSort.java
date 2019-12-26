@@ -10,7 +10,7 @@ public class BubbleSort {
         }
     }
 
-    private void toSwap(int first, int second,int[] a){
+    private void swap(int first, int second, int[] a){
         int buff = a[first];
         a[first] = a[second];
         a[second] = buff;
@@ -20,7 +20,7 @@ public class BubbleSort {
         for (int out = a.length - 1; out >= 1; out--){
             for (int in = 0; in < out; in++){
                 if(a[in] > a[in + 1])
-                    toSwap(in, in + 1,a);
+                    swap(in, in + 1,a);
             }
         }
     }
