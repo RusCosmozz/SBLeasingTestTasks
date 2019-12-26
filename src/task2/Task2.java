@@ -11,13 +11,13 @@ public class Task2 {
         String input = reader.readLine();
         Map<Character, List<String>> map = new TreeMap<>();
         String[] arr = input.split(" ");
-        for (int i = 0; i < arr.length; i++) {      //Заполняем мапу парами "Буква"="Слова на эту букву"
-            char key = arr[i].charAt(0);
+        for (String s : arr) {      //Заполняем мапу парами "Буква"="Слова на эту букву"
+            char key = s.charAt(0);
             if (!map.containsKey(key)) {
                 map.put(key, new ArrayList<>());
-                map.get(key).add(arr[i]);
+                map.get(key).add(s);
             } else {
-                map.get(key).add(arr[i]);
+                map.get(key).add(s);
             }
         }
         map.forEach((k, v) -> v.sort((o1, o2) -> Integer.compare(o2.length(), o1.length())));           //Сортируем списки по количетсву букв в словах
