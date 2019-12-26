@@ -9,6 +9,7 @@ public class Task2 {
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("input.txt")));
         String input = reader.readLine();
+        reader.close();
         Map<Character, List<String>> map = new TreeMap<>();
         String[] arr = input.split(" ");
         for (String s : arr) {      //Заполняем мапу парами "Буква"="Слова на эту букву"
