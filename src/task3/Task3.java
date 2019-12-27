@@ -20,21 +20,27 @@ public class Task3 {
         for (String url:urlToDownload) {
             System.out.println("Куда сохранить файл? ");
             String pathToWrite=reader1.readLine();
-
+            File file=new File(pathToWrite);
+            FileWriter fileWriter=new FileWriter(file);
+            fileWriter.write(download(url));
+            fileWriter.close();
         }
     }
 
 
-    public byte[] download(String url) throws IOException{
+    public static char[] download(String url) throws IOException{
         URL con=new URL(url);
         HttpURLConnection httpURLConnection= (HttpURLConnection) con.openConnection();
         httpURLConnection.setRequestMethod("GET");
         httpURLConnection.connect();
         InputStream inputStream= httpURLConnection.getInputStream();
-        int buffSize=inputStream.available();
-        byte[] buff=new byte[buffSize];
+        byte[] buff=new byte[inputStream.available()];
         inputStream.read(buff);
         inputStream.close();
-        return buff;
+        char[] chars=new char[buff.length];
+        for (int i = 0; i < buff.length; i++) {
+            chars[i]= (char) buff[i];
+        }
+        return chars;
     }
 }
